@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Misi Penyelamatan Data: Dasar Keamanan Siber</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+body{background:#0f172a;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:10px}
+#stage{width:100%;max-width:1280px;aspect-ratio:16/9;background:#f8fafc;border-radius:18px;overflow:hidden;position:relative;display:flex;flex-direction:column;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+header{background:#1e3a8a;color:#fff;padding:10px 18px;display:flex;justify-content:space-between;align-items:center}
+header b{font-size:18px} .badge{background:#facc15;color:#111;padding:5px 10px;border-radius:20px;font-weight:700;font-size:13px}
+main{flex:1;overflow:auto;padding:18px 24px}
+.screen{display:none} .screen.active{display:block}
+h1{font-size:32px;color:#1e3a8a;line-height:1.1} h2{font-size:26px;color:#1e3a8a;margin-bottom:10px}
+p{font-size:16px;line-height:1.6;color:#334155} .card{background:#fff;border:2px solid #e2e8f0;border-radius:14px;padding:16px;margin:12px 0}
+.btn{background:#2563eb;color:#fff;border:none;padding:12px 20px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;margin:6px 4px}
+.btn:hover{background:#1d4ed8} .btn-green{background:#16a34a} .btn-yellow{background:#eab308;color:#111} .btn-gray{background:#64748b}
+.opt{display:block;width:100%;text-align:left;background:#fff;border:2px solid #cbd5e1;padding:12px;border-radius:12px;margin:8px 0;cursor:pointer;font-size:16px}
+.opt:hover{border-color:#2563eb} .opt.correct{background:#dcfce7;border-color:#16a34a} .opt.wrong{background:#fee2e2;border-color:#dc2626}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px} .pill{display:inline-block;background:#dbeafe;padding:6px 12px;border-radius:20px;font-weight:700;font-size:13px;margin:3px}
+.progress{height:12px;background:#e2e8f0;border-radius:20px;overflow:hidden;margin:10px 0} .bar{height:100%;background:#22c55e;width:0%;transition:.4s}
+.feedback{padding:12px;border-radius:10px;font-weight:700;margin-top:10px;display:none} .fb-ok{background:#dcfce7;color:#166534} .fb-no{background:#fee2e2;color:#991b1b}
+.match{padding:12px;background:#e0e7ff;border:2px solid #6366f1;border-radius:10px;cursor:pointer;text-align:center;font-weight:700}
+.match.selected{background:#6366f1;color:#fff} .match.done{background:#dcfce7;border-color:#16a34a}
+.step{background:#fff;border:2px dashed #94a3b8;padding:10px;border-radius:10px;margin:6px 0;cursor:pointer}
+.footer{padding:10px 18px;background:#fff;border-top:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center}
+.small{font-size:13px;color:#64748b} .center{text-align:center}
+@media(max-width:700px){#stage{aspect-ratio:auto;min-height:92vh} h1{font-size:24px} .grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="stage">
+<header><b>🛡️ MISI PENYELAMATAN DATA</b><div><span class="badge">⭐ Skor: <span id="score">0</span></span> <span class="badge">❤️ Nyawa: <span id="lives">3</span></span> <span class="badge">⏱️ <span id="timer">03:00</span></span></div></header>
+<main>
+<!-- LAMAN MUKA -->
+<section id="s-home" class="screen active">
+<div class="center"><div class="pill">TEKNOLOGI INFORMASI • SMK • GIM EDUKASI</div>
+<h1>Misi Penyelamatan Data:<br>Dasar Keamanan Siber</h1>
+<p><b>Pertanyaan Pemantik:</b> Kalau ada pesan hadiah gratis, kamu klik atau kamu cek dulu?</p>
+<div class="card"><p>🎯 <b>Tujuan Belajar:</b> Kamu akan belajar mengenali phishing, membuat kata sandi kuat, dan mengamankan akun dengan langkah yang benar. Kamu akan melatih <b>pengambilan keputusan, pemecahan masalah, dan manajemen waktu</b> seperti di dunia kerja IT.</p><p>🧩 <b>Deskripsi:</b> Halo teman-teman! Server sekolah diserang! Bantu Tim IT menyelamatkan data dalam 3 misi. Setiap jawaban benar menambah skor. Hati-hati, nyawamu hanya 3! Selesaikan semua misi dan jadi Pahlawan Siber!</p></div>
+<button class="btn btn-green" onclick="show('s-guide')">▶ MULAI MAIN</button>
+<button class="btn btn-yellow" onclick="show('s-guide')">📖 PANDUAN</button>
+<p class="small">Rasio 16:9 • Single Page • Tanpa Internet • Visual teks + ikon</p></div>
+</section>
+
+<!-- PANDUAN -->
+<section id="s-guide" class="screen">
+<h2>📖 Panduan Bermain</h2>
+<div class="grid">
+<div class="card"><h3>🎮 Cara Main</h3><p>1. Baca soal dengan teliti.<br>2. Pilih jawaban / klik pasangan / urutkan langkah.<br>3. Kamu langsung dapat umpan balik benar/salah.<br>4. Selesaikan Misi 1, 2, dan 3.</p></div>
+<div class="card"><h3>🏆 Aturan</h3><p>• Jawaban benar = +100 poin<br>• Jawaban salah = -1 nyawa<br>• Waktu total 3 menit<br>• Nyawa habis = ulang dari Misi 1</p></div>
+</div>
+<div class="card"><p><b>Navigasi:</b> Kamu bebas pilih menu di bawah. Kamu bisa kembali ke Menu kapan pun. Gunakan tombol Berikutnya / Kembali yang selalu ada.</p></div>
+<button class="btn" onclick="show('s-home')">⬅ Kembali</button>
+<button class="btn btn-green" onclick="show('s-menu')">➡ KE MENU MISI</button>
+</section>
+
+<!-- MENU -->
+<section id="s-menu" class="screen">
+<h2>🗺️ Menu Misi</h2><div class="progress"><div class="bar" id="prog"></div></div><p id="progText">Progres: 0 dari 3 misi</p>
+<div class="grid">
+<div class="card"><h3>MISI 1: Jebakan Phishing</h3><p>Pilih tindakan paling aman saat dapat pesan mencurigakan.</p><button class="btn" onclick="show('s-m1')">MAIN MISI 1</button></div>
+<div class="card"><h3>MISI 2: Pasangkan Ancaman</h3><p>Cocokkan jenis serangan dengan contohnya.</p><button class="btn" onclick="show('s-m2')">MAIN MISI 2</button></div>
+<div class="card"><h3>MISI 3: Urutan Aman</h3><p>Urutkan 4 langkah mengamankan akun yang diretas.</p><button class="btn" onclick="show('s-m3')">MAIN MISI 3</button></div>
+<div class="card"><h3>📝 EVALUASI</h3><p>Kuis singkat 2 soal untuk cek pemahamanmu.</p><button class="btn btn-yellow" onclick="show('s-eval')">BUKA EVALUASI</button></div>
+</div>
+<button class="btn btn-gray" onclick="show('s-guide')">⬅ Panduan</button>
+</section>
+
+<!-- MISI 1 -->
+<section id="s-m1" class="screen">
+<h2>Misi 1 dari 3: Jebakan Phishing 🎣</h2>
+<p><b>Studi Kasus:</b> Rina dapat SMS: <i>"Selamat! Kamu menang HP gratis. Klik http://hadiah-gratis-123.xyz untuk klaim!"</i> Apa yang harus Rina lakukan?</p>
+<button class="opt" onclick="ans(this,false,'s-m1')">A. Langsung klik link dan isi password</button>
+<button class="opt" onclick="ans(this,true,'s-m1')">B. Jangan klik, laporkan sebagai spam, dan cek ke sumber resmi</button>
+<button class="opt" onclick="ans(this,false,'s-m1')">C. Teruskan ke semua teman biar ikut dapat</button>
+<div id="fb-m1" class="feedback"></div>
+<button class="btn btn-gray" onclick="show('s-menu')">⬅ Menu</button>
+<button class="btn btn-green" onclick="show('s-m2')">Misi 2 ➡</button>
+</section>
+
+<!-- MISI 2 -->
+<section id="s-m2" class="screen">
+<h2>Misi 2 dari 3: Pasangkan! 🧩</h2><p>Klik 1 kotak kiri, lalu klik pasangannya di kanan. Pasangan benar akan jadi hijau.</p>
+<div class="grid"><div>
+<div class="match" data-pair="1" onclick="pick(this,'L')">PHISHING</div>
+<div class="match" data-pair="2" onclick="pick(this,'L')">KATA SANDI LEMAH</div>
+<div class="match" data-pair="3" onclick="pick(this,'L')">WIFI PUBLIK</div>
+</div><div>
+<div class="match" data-pair="2" onclick="pick(this,'R')">123456</div>
+<div class="match" data-pair="3" onclick="pick(this,'R')">Transaksi bank di wifi cafe tanpa VPN</div>
+<div class="match" data-pair="1" onclick="pick(this,'R')">Link palsu minta data login</div>
+</div></div>
+<div id="fb-m2" class="feedback"></div>
+<button class="btn btn-gray" onclick="show('s-menu')">⬅ Menu</button>
+<button class="btn btn-green" onclick="show('s-m3')">Misi 3 ➡</button>
+</section>
+
+<!-- MISI 3 -->
+<section id="s-m3" class="screen">
+<h2>Misi 3 dari 3: Urutkan Langkah 🔢</h2><p>Klik langkah secara berurutan dari yang paling pertama dilakukan saat akun diretas:</p>
+<div id="steps">
+<div class="step" data-order="2" onclick="orderStep(this)">Aktifkan verifikasi 2 langkah</div>
+<div class="step" data-order="1" onclick="orderStep(this)">Ganti kata sandi segera</div>
+<div class="step" data-order="4" onclick="orderStep(this)">Periksa aktivitas login & laporkan</div>
+<div class="step" data-order="3" onclick="orderStep(this)">Keluar dari semua perangkat lain</div>
+</div>
+<div id="fb-m3" class="feedback"></div>
+<button class="btn" onclick="resetOrder()">🔄 Ulangi Urutan</button>
+<button class="btn btn-gray" onclick="show('s-menu')">⬅ Menu</button>
+<button class="btn btn-green" onclick="show('s-eval')">Evaluasi ➡</button>
+</section>
+
+<!-- EVALUASI -->
+<section id="s-eval" class="screen">
+<h2>📝 Evaluasi: Cek Pemahamanmu</h2>
+<p><b>Soal 1:</b> Ciri kata sandi yang paling kuat adalah?</p>
+<button class="opt" onclick="ans(this,false,'eval')">A. Nama + tanggal lahir</button>
+<button class="opt" onclick="ans(this,true,'eval')">B. Panjang, campur huruf besar, kecil, angka & simbol</button>
+<p><b>Soal 2 Reflektif:</b> Tulis di buku: Apa yang akan kamu lakukan jika temanmu membagikan password-nya kepadamu? Diskusikan dengan teman sebangkumu.</p>
+<div class="card"><p>✅ Kamu sudah melatih <b>problem solving, pengambilan keputusan, dan manajemen waktu</b>. Kompetensi ini penting untuk pekerjaan IT Support, Admin Jaringan, dan Teknisi.</p></div>
+<div id="fb-eval" class="feedback"></div>
+<button class="btn btn-gray" onclick="show('s-menu')">⬅ Menu</button>
+<button class="btn btn-green" onclick="finish()">🏁 LIHAT HASIL AKHIR</button>
+</section>
+
+<!-- HASIL -->
+<section id="s-result" class="screen">
+<div class="center"><h2>🎉 HASIL AKHIR</h2>
+<div class="card"><h1 id="finalScore">Skor: 0</h1><p id="finalMsg"></p><p><b>Yang kamu pelajari:</b> 1) Jangan klik link mencurigakan, 2) Kenali jenis serangan siber, 3) Urutan mengamankan akun: Ganti password → Aktifkan 2FA → Logout perangkat → Cek aktivitas.</p></div>
+<button class="btn btn-green" onclick="location.reload()">🔁 MAIN LAGI</button>
+<button class="btn" onclick="show('s-credit')">ℹ️ INFORMASI KREATOR</button>
+</div></section>
+
+<!-- KREATOR - HALAMAN PALING BELAKANG -->
+<section id="s-credit" class="screen">
+<div class="center"><h2>Informasi Kreator</h2><div class="card"><p><b>Kreator:</b> Indri</p><p><b>Materi:</b> Dasar Keamanan Siber - Teknologi Informasi</p><p>Seluruh aset visual dibuat dengan kode CSS dan ikon teks. Tidak menggunakan aset eksternal.</p><p class="small">Sumber materi: Konsep dasar keamanan siber dan literasi digital untuk SMK.</p></div>
+<button class="btn btn-gray" onclick="show('s-result')">⬅ Kembali ke Hasil</button></div>
+</section>
+</main>
+<div class="footer"><button class="btn btn-gray" onclick="goBack()">⬅ Kembali</button><span class="small">Misi Penyelamatan Data • Gunakan tombol navigasi di bawah</span><button class="btn" onclick="goNext()">Berikutnya ➡</button></div>
+</div>
+<script>
+let score=0,lives=3,time=180,done={m1:false,m2:0,m3:0},selL=null,selR=null,orderExpect=1,history=['s-home'],cur='s-home';
+function show(id){history.push(cur);cur=id;document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');updateProg();window.scrollTo(0,0)}
+function goBack(){if(history.length){let p=history.pop();cur=p;document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(p).classList.add('active')}}
+function goNext(){let order=['s-home','s-guide','s-menu','s-m1','s-m2','s-m3','s-eval','s-result'];let i=order.indexOf(cur);if(i<order.length-1)show(order[i+1])}
+function beep(ok){try{let c=new (window.AudioContext||window.webkitAudioContext)();let o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=ok?700:200;o.start();g.gain.exponentialRampToValueAtTime(0.001,c.currentTime+0.3);o.stop(c.currentTime+0.3)}catch(e){}}
+function updateProg(){let d=(done.m1?1:0)+(done.m2>=3?1:0)+(done.m3?1:0);document.getElementById('prog').style.width=(d/3*100)+'%';document.getElementById('progText').textContent='Progres: '+d+' dari 3 misi';document.getElementById('score').textContent=score;document.getElementById('lives').textContent=lives}
+function showFb(id,ok,msg){let e=document.getElementById(id);e.style.display='block';e.className='feedback '+(ok?'fb-ok':'fb-no');e.textContent=msg}
+function ans(el,ok,ctx){if(el.classList.contains('correct'))return;if(ok){el.classList.add('correct');score+=100;beep(true);showFb('fb-'+ctx,true,'✅ BENAR! +100 poin. Keputusanmu tepat dan aman.');if(ctx=='s-m1')done.m1=true;if(ctx=='eval')done.m1=true}else{el.classList.add('wrong');lives--;beep(false);showFb('fb-'+ctx,false,'❌ BELUM TEPAT. Coba lagi! Ingat: jangan klik link mencurigakan dan jangan bagikan password. Nyawa tersisa: '+lives);if(lives<=0){alert('Nyawa habis! Kamu mengulang dari Misi 1. Tetap semangat!');lives=3;score=0}}updateProg()}
+function pick(el,side){if(el.classList.contains('done'))return;if(side=='L'){if(selL)selL.classList.remove('selected');selL=el;el.classList.add('selected')}else{selR=el;el.classList.add('selected');if(selL&&selL.dataset.pair==selR.dataset.pair){selL.classList.add('done');selR.classList.add('done');selL.classList.remove('selected');selR.classList.remove('selected');done.m2++;score+=100;beep(true);showFb('fb-m2',true,'✅ PASANGAN BENAR! +100 poin. Kamu hebat mengenali ancaman!');selL=null;selR=null;updateProg()}else{beep(false);showFb('fb-m2',false,'❌ BELUM PAS. Coba pasangan lain ya!');setTimeout(()=>{if(selL)selL.classList.remove('selected');if(selR)selR.classList.remove('selected');selL=null;selR=null},400)}}}
+function orderStep(el){if(el.dataset.order==orderExpect){el.style.background='#dcfce7';el.style.borderColor='#16a34a';el.textContent='✅ '+orderExpect+'. '+el.textContent.replace('✅ ','');orderExpect++;score+=50;beep(true);showFb('fb-m3',true,'✅ Langkah '+ (orderExpect-1) +' benar! +50 poin. Lanjut!');if(orderExpect>4){done.m3=true;showFb('fb-m3',true,'🎉 URUTAN BENAR SEMUA! Akun berhasil diamankan!');updateProg()}}else{beep(false);showFb('fb-m3',false,'❌ Urutan belum tepat. Langkah pertama harus Ganti Kata Sandi. Coba lagi!')}updateProg()}
+function resetOrder(){orderExpect=1;document.querySelectorAll('#steps .step').forEach(s=>{s.style.background='#fff';s.textContent=s.textContent.replace(/✅ \d+\. /,'')});showFb('fb-m3',false,'Urutan diulang. Ingat: Ganti password dulu!')}
+function finish(){document.getElementById('finalScore').textContent='Skor Akhir: '+score+' / 500';document.getElementById('finalMsg').textContent=score>=300?'🏆 Kamu Pahlawan Siber! Kamu sudah siap menjaga data di dunia kerja.':'💪 Semangat! Kamu sudah belajar. Coba main lagi untuk skor lebih tinggi!';show('s-result')}
+setInterval(()=>{if(time>0){time--;let m=String(Math.floor(time/60)).padStart(2,'0'),s=String(time%60).padStart(2,'0');document.getElementById('timer').textContent=m+':'+s;if(time==0)alert('Waktu habis! Lihat hasilmu ya!')}},1000)
+</script>
+</body>
+</html>
