@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game KKA</title>
+<style>
+body{font-family:sans-serif;text-align:center;background:#111;color:white;padding:20px}
+h1{color:#ffcc00}
+button{padding:15px 25px;font-size:18px;border:none;border-radius:12px;background:#ffcc00;margin:10px}
+#kotak{width:200px;height:200px;background:#ff4757;margin:20px auto;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:22px}
+</style>
+</head>
+<body>
+<h1>🎮 Game KKA</h1>
+<p>Klik kotak secepatnya! Skor kau:</p>
+<h2 id="skor">0</h2>
+<div id="kotak" onclick="klik()">KLIK AKU!</div>
+<button onclick="mulai()">Mulai Lagi</button>
+<script>
+let s=0;
+function klik(){s++;document.getElementById("skor").innerText=s;let k=document.getElementById("kotak");k.style.background="#"+Math.floor(Math.random()*16777215).toString(16);}
+function mulai(){s=0;document.getElementById("skor").innerText=0;}
+</script>
+</body>
+</html>
